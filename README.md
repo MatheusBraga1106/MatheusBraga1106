@@ -5,7 +5,7 @@
 - 📫 Contate-me no email: mmatheusbragamed@gmail.com
 
 
-[![GitHub Profile Summary Cards](https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=MatheusBraga1106&theme=radical)](https://github.com/MatheusBraga1106)
+![As minhas métricas do GitHub](github-metrics.svg)
 
 <div style="display: inline_block"><br>
   <img align="center" alt="Python" height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg">
