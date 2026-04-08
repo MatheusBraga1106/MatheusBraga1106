@@ -1,6 +1,6 @@
 ## MatheusBraga1106
 
-- 🔭 Hoje trabalho com Modelagem 3D
+- 🔭 Hoje trabalho com Modelagem 3D e faço parte de uma pesquisa na area de dados. 
 - 🌱 Atualmente estou estudando SQL, BI, Python, MachineLearning.
 - 📫 Contate-me no email: mmatheusbragamed@gmail.com
 
