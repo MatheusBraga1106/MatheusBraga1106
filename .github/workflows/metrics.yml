@@ -1,6 +1,6 @@
 name: Metrics
 on:
-  # Agendamento roda na VPS via `act` (cron local) — ver .github/vps-runner/
+  schedule: [{cron: "0 */12 * * *"}]
   workflow_dispatch:
   push: {branches: ["master", "main"]}
 jobs:
