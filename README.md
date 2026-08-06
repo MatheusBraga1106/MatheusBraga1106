@@ -1,6 +1,6 @@
-# Olá, eu sou o Matheus 👋
+# Matheus Braga
 
-Estudante de Engenharia de Computação na UFG, trabalhando com **modelagem 3D** e integrante de uma pesquisa na área de **dados**. Gosto de construir automações e ferramentas de ponta a ponta — da extração de dados brutos até uma interface usável.
+Estudante de Engenharia de Computação na UFG, trabalhando com **modelagem 3D** e **Desenvolvimento de Sistema** no Grupo Odilon Santos e integrante de uma pesquisa na área de **dados**. Gosto de construir automações e ferramentas de ponta a ponta — da extração de dados brutos até uma interface usável.
 
 - 🔭 Atualmente: modelagem 3D + pesquisa de eficientização de dados
 - 🌱 Estudando: SQL, BI, Python, Machine Learning
