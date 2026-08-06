@@ -30,6 +30,14 @@ Estudante de Engenharia de Computação na UFG, trabalhando com **modelagem 3D**
 
 ![As minhas métricas do GitHub](github-metrics.svg)
 
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/MatheusBraga1106/MatheusBraga1106/output/github-contribution-grid-snake-dark.svg" />
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/MatheusBraga1106/MatheusBraga1106/output/github-contribution-grid-snake.svg" />
+  <img alt="Animação da cobrinha comendo minhas contribuições" src="https://raw.githubusercontent.com/MatheusBraga1106/MatheusBraga1106/output/github-contribution-grid-snake.svg" />
+</picture>
+
+[![GitHub Streak](https://streak-stats.demolab.com?user=MatheusBraga1106&theme=dark&hide_border=true)](https://git.io/streak-stats)
+
 ## Contato
 
 <div>
