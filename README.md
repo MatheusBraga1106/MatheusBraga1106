@@ -25,7 +25,7 @@ Estudante de Engenharia de Computação na UFG, trabalhando com **modelagem 3D**
 |---|---|---|
 | [Automação de Extração de Faturas](https://github.com/MatheusBraga1106/ProjetoAutoma--oFatura) | Extrai e consolida faturas de água de múltiplas distribuidoras (PDF → dados estruturados), parte de uma pesquisa de eficientização | Python, pandas |
 | **FindBUS** ([site](https://findbus.com.br)) | API + painel em tempo real que mostra quais ônibus da RMTC (Goiânia) têm ar-condicionado, cruzando rastreamento em tempo real com banco de dados da frota | FastAPI, Docker, Leaflet |
-| [Neon Balance Glow](https://github.com/MatheusBraga1106/neon-balance-glow) | Dashboard de controle financeiro pessoal | React, TanStack Start, Tailwind |
+| [DashBoard Financeiro](https://github.com/MatheusBraga1106/dashboard-financeiro) | Dashboard de controle financeiro pessoal | React, TanStack Start, Tailwind |
 | [16x16 Pixel Editor](https://github.com/MatheusBraga1106/16x16_Pixel_editor_ESP32S2_mini) | Editor de pixel art para matriz de LED 16x16 com OTA para ESP32-S2 | Python |
 
 ![As minhas métricas do GitHub](github-metrics.svg)
