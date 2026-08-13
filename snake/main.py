@@ -34,8 +34,8 @@ def main():
     ap.add_argument("--out", default="snake.svg")
     ap.add_argument("--color", default="#8b5cf6")
     ap.add_argument("--frame-ms", type=int, default=140)
-    ap.add_argument("--backfill", type=int, default=30,
-                    help="dias de historico consumidos na primeira rodada")
+    ap.add_argument("--max-foods", type=int, default=15,
+                    help="quantos quadrados ela pode comer por execucao")
     ap.add_argument("--demo", action="store_true")
     args = ap.parse_args()
 
@@ -45,7 +45,7 @@ def main():
             state = json.load(fh)
         engine.reanchor(state, anchor)
     else:
-        state = engine.new_state(anchor, args.backfill)
+        state = engine.new_state(anchor)
 
     if args.demo:
         activity = demo_activity(anchor)
@@ -56,7 +56,7 @@ def main():
         activity = github_data.daily_activity(
             github_data.fetch(args.user, token))
 
-    engine.advance(state, activity, anchor)
+    engine.advance(state, activity, anchor, max_foods=args.max_foods)
     svg = render.render(state, activity, anchor,
                         snake_color=args.color, frame_ms=args.frame_ms)
 

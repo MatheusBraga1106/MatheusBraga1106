@@ -8,7 +8,7 @@ import engine
 def simulate(seed, days=400, density=0.55):
     random.seed(seed)
     anchor = engine.current_anchor()
-    state = engine.new_state(anchor, backfill_days=0)
+    state = engine.new_state(anchor)
     start = anchor
     activity = {}
     for i in range(days):

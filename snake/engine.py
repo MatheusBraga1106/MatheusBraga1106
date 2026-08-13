@@ -25,12 +25,14 @@ def date_to_cell(day, anchor):
     return delta // 7, delta % 7
 
 
-def new_state(anchor, backfill_days=30):
-    """Comeca pequena: so o historico recente e consumido na primeira rodada."""
-    start = max(date.today() - timedelta(days=backfill_days), anchor)
-    head = list(date_to_cell(start.isoformat(), anchor))
+def new_state(anchor):
+    """Nasce pequena e vazia: nada e excluido de vez, so limitamos quanto ela
+    come por rodada (veja `max_foods` em advance). Um backlog grande e comido
+    aos poucos, dia apos dia, ate zerar - nunca fica comida orfa no tabuleiro.
+    """
+    head = [0, 3]
     return {
-        "version": 1,
+        "version": 2,
         "generation": 1,
         "anchor": anchor.isoformat(),
         "length": START_LENGTH,
@@ -38,9 +40,7 @@ def new_state(anchor, backfill_days=30):
         "head": head,
         "path": [list(head)],
         "events": [],
-        # dias anteriores ao backfill ja nascem "comidos" pra ela comecar pequena
-        "eaten": [(anchor + timedelta(days=i)).isoformat()
-                  for i in range((start - anchor).days)],
+        "eaten": [],
         "totalEaten": 0,
     }
 
@@ -150,7 +150,7 @@ def _restart(state):
     state["events"] = []
 
 
-def advance(state, activity, anchor, max_foods=80):
+def advance(state, activity, anchor, max_foods=15):
     """Cada dia com atividade vira uma comida; a cobrinha cresce 1 por comida.
 
     Ela persegue sempre a comida alcancavel mais proxima em vez de seguir a
