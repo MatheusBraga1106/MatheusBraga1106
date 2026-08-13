@@ -21,14 +21,18 @@ python3 snake/main.py \
   --out snake.svg \
   --color "${SNAKE_COLOR:-#8b5cf6}"
 
-if git diff --quiet -- snake.svg snake/snake-state.json; then
+git add snake.svg snake/snake-state.json
+if git diff --cached --quiet; then
   echo "nada mudou hoje"
   exit 0
 fi
 
-git add snake.svg snake/snake-state.json
-git commit -q -m "cobrinha: $(python3 -c "
-import json;s=json.load(open('snake/snake-state.json'))
-print(f\"tamanho {s['length']}, {s['totalEaten']} comidos, geracao {s['generation']}\")")"
+SUMMARY=$(python3 - <<'PY'
+import json
+s = json.load(open("snake/snake-state.json"))
+print(f"tamanho {s['length']}, {s['totalEaten']} comidos, geracao {s['generation']}")
+PY
+)
+git commit -q -m "cobrinha: $SUMMARY"
 git push -q "https://${GH_TOKEN}@github.com/MatheusBraga1106/MatheusBraga1106.git" main
-echo "publicado"
+echo "publicado ($SUMMARY)"
