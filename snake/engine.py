@@ -1,9 +1,12 @@
 """Estado persistente da cobrinha: posicao, tamanho e caminho percorrido.
 
-O corpo sao as ultimas `length` posicoes visitadas pela cabeca. A cobrinha
-nunca atravessa o proprio corpo nem volta 180 graus: cada movimento sai de
-uma busca em largura que trata o corpo como parede. Se ficar sem saida, e
-game over e ela renasce pequena (nova geracao).
+O corpo sao as ultimas `length` posicoes visitadas pela cabeca. A simulacao
+anda um passo por vez: a cada passo ela persegue a comida alcancavel mais
+proxima; se nenhuma comida tiver caminho livre agora, ela entra em modo
+sobrevivencia (persegue o proprio rabo) ate abrir espaço - nunca desiste s6
+por causa de um alvo especifico estar temporariamente bloqueado. So reseta
+quando literalmente nao sobra nenhum movimento seguro (encurralada de
+verdade) ou quando enche o tabuleiro inteiro.
 """
 from collections import deque
 from datetime import date, timedelta
@@ -108,37 +111,27 @@ def _safe(path, length, move, grow):
 
 
 def _choose_move(path, length, target):
-    """Um passo: persegue a comida se for seguro, senao sobrevive."""
+    """Um unico passo: persegue `target` se der um caminho seguro ate ele,
+    senao persegue a propria cauda pra sobreviver. None so quando nao sobra
+    nenhuma celula vizinha livre (fim de jogo de verdade).
+    """
     head = tuple(path[-1])
     blocked = _body(path, length)
     options = [n for n in _neighbors(head) if n not in blocked]
     if not options:
-        return None
-    route = _bfs(head, target, blocked)
+        return None, False
+    route = _bfs(head, target, blocked - {target})
     if route and _safe(path, length, route[0], grow=route[0] == target):
-        return route[0]
-    # sem caminho seguro ate a comida: anda atras da propria cauda
+        return route[0], route[0] == target
     tail = tuple(path[-length]) if length <= len(path) else tuple(path[0])
     safe_opts = [n for n in options if _safe(path, length, n, grow=False)]
     pool = safe_opts or options
-    return min(pool, key=lambda n: abs(n[0] - tail[0]) + abs(n[1] - tail[1]))
-
-
-def _route(path, length, target, max_steps=150):
-    """Passos rumo a comida. Devolve (passos, chegou, sem_saida)."""
-    steps = []
-    cur = [tuple(p) for p in path]
-    while tuple(cur[-1]) != target and len(steps) < max_steps:
-        move = _choose_move(cur, length, target)
-        if move is None:
-            return steps, False, True
-        cur.append(move)
-        steps.append(move)
-    return steps, tuple(cur[-1]) == target, False
+    best = min(pool, key=lambda n: abs(n[0] - tail[0]) + abs(n[1] - tail[1]))
+    return best, False
 
 
 def _restart(state):
-    """Game over: renasce pequena numa celula livre, zerando a animacao."""
+    """Game over de verdade: renasce pequena numa celula livre."""
     body = _body(state["path"], state["length"])
     head = next(((c, r) for c in range(COLS) for r in range(ROWS)
                  if (c, r) not in body), (0, 3))
@@ -150,12 +143,13 @@ def _restart(state):
     state["events"] = []
 
 
-def advance(state, activity, anchor, max_foods=15):
-    """Cada dia com atividade vira uma comida; a cobrinha cresce 1 por comida.
+def advance(state, activity, anchor, max_foods=15, max_steps=600):
+    """Anda passo a passo perseguindo a comida mais proxima alcancavel.
 
-    Ela persegue sempre a comida alcancavel mais proxima em vez de seguir a
-    ordem do calendario: seguir a data engessa o trajeto e faz o proprio corpo
-    cair em cima dos dias seguintes.
+    Nunca desiste so porque um alvo especifico esta bloqueado no momento -
+    ela sobrevive perseguindo a propria cauda ate abrir espaço. Reseta
+    apenas quando fica sem nenhum movimento seguro (encurralada de verdade)
+    ou quando enche o tabuleiro inteiro.
     """
     eaten = set(state["eaten"])
     food = {}
@@ -168,50 +162,40 @@ def advance(state, activity, anchor, max_foods=15):
         if 0 <= cell[0] < COLS:
             food[cell] = day
 
-    for _ in range(max_foods):
-        if not food:
+    eaten_this_round = 0
+    for _ in range(max_steps):
+        if eaten_this_round >= max_foods or not food:
             break
         head = tuple(state["path"][-1])
         body = _body(state["path"], state["length"])
-        targets = sorted(
-            (c for c in food if c not in body),
-            key=lambda c: abs(c[0] - head[0]) + abs(c[1] - head[1]),
-        )
-        if not targets:
-            break
-        route = target = None
-        fallback, dead = [], False
-        for cand in targets[:8]:
-            steps, reached, stuck = _route(state["path"], state["length"], cand)
-            if reached:
-                route, target = steps, cand
-                break
-            dead = dead or stuck
-            fallback = fallback or steps
-        if target is None:
-            # nao deu pra chegar em nenhuma: manobra e deixa pra proxima rodada
-            for step in fallback:
-                state["path"].append(list(step))
-            if dead and not fallback:
-                _restart(state)  # sem saida de verdade: game over
-            break
-        for step in route:
-            state["path"].append(list(step))
-        day = food.pop(target)
-        eaten.add(day)
-        state["length"] += 1
-        state["totalEaten"] += 1
-        state["events"].append({
-            "frame": len(state["path"]) - 1,
-            "grow": 1,
-            "date": day,
-            "cell": list(target),
-        })
-        if state["length"] >= BOARD:
-            _restart(state)
+        reachable_food = [c for c in food if c not in body]
+        if not reachable_food:
+            break  # toda comida restante esta sob o proprio corpo agora
+        target = min(reachable_food,
+                    key=lambda c: abs(c[0] - head[0]) + abs(c[1] - head[1]))
 
-    state["eaten"] = sorted(d for d in eaten
-                            if date.fromisoformat(d) >= anchor)
+        move, grew = _choose_move(state["path"], state["length"], target)
+        if move is None:
+            _restart(state)  # sem saida de verdade: reseta e continua a rodada
+            continue
+
+        state["path"].append(list(move))
+        if grew:
+            day = food.pop(move)
+            eaten.add(day)
+            state["length"] += 1
+            state["totalEaten"] += 1
+            eaten_this_round += 1
+            state["events"].append({
+                "frame": len(state["path"]) - 1,
+                "grow": 1,
+                "date": day,
+                "cell": list(move),
+            })
+            if state["length"] >= BOARD:
+                _restart(state)  # encheu o tabuleiro inteiro
+
+    state["eaten"] = sorted(d for d in eaten if date.fromisoformat(d) >= anchor)
     state["head"] = list(state["path"][-1])
     _trim(state)
     return state
