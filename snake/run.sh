@@ -27,6 +27,11 @@ if git diff --cached --quiet; then
   exit 0
 fi
 
+# cache-busting: o GitHub cacheia a imagem do README pelo nome do arquivo,
+# entao troca a query string a cada mudanca real pra forcar buscar de novo
+sed -i -E "s#(snake\.svg)(\?v=[0-9]+)?#\1?v=$(date +%s)#" README.md
+git add README.md
+
 SUMMARY=$(python3 - <<'PY'
 import json
 s = json.load(open("snake/snake-state.json"))
