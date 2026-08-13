@@ -36,13 +36,10 @@ def render(state, activity, anchor, snake_color="#8b5cf6", frame_ms=140):
         lengths.append(cur)
     max_len = lengths[-1]
 
-    already_eaten = set(state.get("eaten", ()))
     cells = {}
     for day, a in activity.items():
         if date.fromisoformat(day) < anchor or a["count"] <= 0:
             continue
-        if day in already_eaten:
-            continue  # comida ha muito tempo: nem desenha, sem precisar de animacao
         col, row = date_to_cell(day, anchor)
         if 0 <= col < COLS:
             cells[(col, row)] = _level(a["count"])
