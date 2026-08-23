@@ -30,7 +30,7 @@ Estudante de Engenharia de Computação na UFG, trabalhando com **modelagem 3D**
 
 ![As minhas métricas do GitHub](github-metrics.svg)
 
-![Cobrinha comendo minhas contribuições](snake.svg?v=1787378402)
+![Cobrinha comendo minhas contribuições](snake.svg?v=1787464802)
 
 <sub>Snake de verdade, com estado persistente: ela cresce 1 quadrado por dia
 que eu contribuo e não atravessa o próprio corpo — [código aqui](snake/).</sub>
