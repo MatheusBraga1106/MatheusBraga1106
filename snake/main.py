@@ -43,6 +43,7 @@ def main():
     if os.path.exists(args.state):
         with open(args.state, encoding="utf-8") as fh:
             state = json.load(fh)
+        state = engine.migrate(state, anchor)
         engine.reanchor(state, anchor)
     else:
         state = engine.new_state(anchor)
@@ -65,8 +66,9 @@ def main():
     with open(args.state, "w", encoding="utf-8") as fh:
         json.dump(state, fh, indent=1)
 
-    print(f"tamanho={state['length']} comidos={state['totalEaten']} "
-          f"geracao={state['generation']} frames={len(state['path'])}")
+    print(f"tamanho={len(state['body'])} comidos={state['totalEaten']} "
+          f"geracao={state['generation']} frames={len(state['path'])} "
+          f"svg={len(svg) / 1024:.0f}KB")
 
 
 if __name__ == "__main__":

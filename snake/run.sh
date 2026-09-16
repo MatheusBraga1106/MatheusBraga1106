@@ -35,7 +35,7 @@ git add README.md
 SUMMARY=$(python3 - <<'PY'
 import json
 s = json.load(open("snake/snake-state.json"))
-print(f"tamanho {s['length']}, {s['totalEaten']} comidos, geracao {s['generation']}")
+print(f"tamanho {len(s['body'])}, {s['totalEaten']} comidos, geracao {s['generation']}")
 PY
 )
 git commit -q -m "cobrinha: $SUMMARY"
