@@ -90,13 +90,14 @@ def render(state, activity, anchor, snake_color="#8b5cf6", frame_ms=140):
     births = segment_births(state, frames, prefix)
     max_len = len(births)
 
+    ja_comido = set(state.get("eaten", ()))
     cells = {}
     for day, a in activity.items():
         if date.fromisoformat(day) < anchor or a.get("count", 0) <= 0:
             continue
         col, row = date_to_cell(day, anchor)
         if 0 <= col < COLS and 0 <= row < ROWS:
-            cells[(col, row)] = _level(a["count"])
+            cells[(col, row)] = (_level(a["count"]), day in ja_comido)
     eaten = {tuple(e["cell"]): e["frame"] + prefix for e in state["events"]}
 
     w = PAD * 2 + COLS * PITCH - GAP
@@ -114,6 +115,7 @@ def render(state, activity, anchor, snake_color="#8b5cf6", frame_ms=140):
         "@media(prefers-color-scheme:dark){:root{%s}}" % (
             ";".join(f"--l{i}:{c}" for i, c in enumerate(DARK))),
         ".bg{fill:var(--l0)}",
+        ".eaten{opacity:.35}",   # ja comido: fica visivel (historico real), so mais apagado
         ".s{fill:var(--snake);animation-duration:%.2fs;"
         "animation-timing-function:linear;animation-iteration-count:infinite}"
         % total,
@@ -154,9 +156,11 @@ def render(state, activity, anchor, snake_color="#8b5cf6", frame_ms=140):
             x, y = _xy(col, row)
             out.append(f'<rect class="bg" x="{x}" y="{y}" width="{CELL}" '
                        f'height="{CELL}" rx="2"/>')
-    for (col, row), lv in sorted(cells.items()):
+    for (col, row), (lv, comido) in sorted(cells.items()):
         x, y = _xy(col, row)
         cls = f"l{lv}"
+        if comido:
+            cls += " eaten"
         if (col, row) in eaten:
             cls += f" e{eaten[(col, row)]}"
         out.append(f'<rect class="{cls}" x="{x}" y="{y}" width="{CELL}" '
