@@ -16,8 +16,7 @@ Estudante de Engenharia de Computação na UFG. Construo produtos de ponta a pon
 | [**FindBus**](https://findbus.com.br) | Painel em tempo real que mostra quais ônibus da RMTC (Goiânia) têm ar-condicionado. Cache em 3 camadas para respeitar o rate limit da API. | FastAPI, Redis, Cloudflare, Docker, Leaflet |
 | [**Extração de faturas**](https://github.com/MatheusBraga1106/ProjetoAutoma--oFatura) | PDF → dados estruturados para 9 distribuidoras de água, com OCR de reserva, banco, interface web e testes automatizados. | Python, pandas, FastAPI, PostgreSQL |
 | [**robo-desviador**](https://github.com/MatheusBraga1106/robo-desviador) | Simulador de um robô real (motores DC + HC-SR04): você joga e a sua rede neural joga, treinada por neuroevolução. | Python, pygame, Arduino |
-| [**3d-web-dev-skills**](https://github.com/MatheusBraga1106/3d-web-dev-skills) | Guia técnico em português para interfaces web com 3D servidas por Python, extraído do Hub Sim Racing. Funciona como skill do Claude Code. | Three.js, FastAPI, documentação |
-| [**dashboard-financeiro**](https://github.com/MatheusBraga1106/dashboard-financeiro) | Painel financeiro pessoal multiusuário com import de fatura (CSV e PDF) e categorização que aprende com o uso. | React, TanStack Start, Tailwind |
+| [**3d-web-dev-skills**](https://github.com/MatheusBraga1106/3d-web-dev-skills) | Guia técnico em português para interfaces web com 3D servidas por Python, extraído do Hub Sim Racing. Funciona como skill do Claude Code. 
 | [**16x16 Pixel Editor**](https://github.com/MatheusBraga1106/16x16_Pixel_editor_ESP32S2_mini) | Editor de pixel art para matriz de LEDs, com OTA. | ESP32-S2, Python, WS2812B |
 
 Também em andamento, em repositórios privados: medidor de energia que corta o ar-condicionado por infravermelho, monitoramento antifurto com câmeras ESP32-S3 e um volante/câmbio DIY.
