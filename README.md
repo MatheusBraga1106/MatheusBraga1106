@@ -1,36 +1,23 @@
 ## Matheus Braga
 
-**AI Engineer** · Engenharia de Computação na UFG (Goiânia)
+Engenharia de Computação na UFG (Goiânia) · **[matheusbragadev.com](https://matheusbragadev.com)**
 
-Engenharia de software com foco em IA: construo sistemas que integram LLMs a processos reais e coloco em produção,
-com testes automatizados, Docker e deploy no meu próprio servidor. Portfólio: **[ia.matheusbragadev.com](https://ia.matheusbragadev.com)**
+### Projetos
 
-### Agora
-
-- **Grupo Odilon Santos**, Laboratório 3D: sou o único responsável pelo sistema completo do laboratório, do pedido à venda
-  (Python, FastAPI, PostgreSQL e Docker), com um bot de WhatsApp de 3 agentes de LLM (OpenAI + n8n + Evolution API)
-  integrado como porta de entrada para as garagens de ônibus.
-- **Iniciação Científica na UFG**: extração automática de faturas de água e energia de órgãos públicos para auditoria de consumo.
-
-### Destaques
-
-| Projeto | O que resolve | Resultado |
+| Projeto | O que é | Stack |
 |---|---|---|
-| **Sistema do Laboratório 3D** *(privado, empresa)* | Do pedido à venda: pedidos, fila de produção, catálogo, reposição, precificação com coletor de horas de modelagem e landing page de vendas. Na entrada, um bot de WhatsApp com três agentes (triagem, pedido e ocorrência), memória no Postgres e passagem para um humano. | Feito e validado só por mim, com 2.300+ testes automatizados; o bot é avaliado por agentes que simulam funcionários |
-| **[FindBus](https://findbus.com.br)** | Mostra em tempo real quais ônibus de Goiânia que estão chegando têm ar-condicionado. Cache em 3 camadas (Redis, Cloudflare, navegador). | 12,6 mil visitas por mês |
-| **[Extração de faturas](https://github.com/MatheusBraga1106/extrator-faturas-agua)** | PDF de conta de água → dados estruturados, com OCR para documentos digitalizados e validação cruzada. | Suspeitas de erro de 217 → 63 em 9.820 faturas |
-| **Monitor do mercado de confiança** *(privado)* | Geladeira sem atendente do Centro Acadêmico da UFG: câmera e sensores (ESP32-S3) e painel de auditoria. | Em uso desde out/2026 |
-| **[Hub Sim Racing](https://github.com/MatheusBraga1106/hub-sim-racing)** | App desktop para equipamentos de simulação, com cena 3D. Feito com subagentes do Claude Code. | 670+ testes, 9 versões publicadas |
-| **[3d-web-dev-skills](https://github.com/MatheusBraga1106/3d-web-dev-skills)** | Skill do Claude Code com o padrão de interfaces 3D servidas por Python. | Reutilizada em projetos novos |
+| **Sistema do Laboratório 3D** *(privado, estágio)* | Pedidos, fila de produção, catálogo, precificação e vendas de peças 3D, com um bot de WhatsApp de 3 agentes de IA na entrada. 2.300+ testes automatizados. | Python · FastAPI · PostgreSQL · Docker · n8n · OpenAI |
+| **[FindBus](https://findbus.com.br)** | Mostra em tempo real quais ônibus de Goiânia que estão chegando têm ar-condicionado. 12,6 mil visitas por mês. | Redis · Cloudflare · Docker |
+| **[Extrator de faturas](https://github.com/MatheusBraga1106/extrator-faturas-agua)** | PDF de conta de água → dados estruturados para auditoria de consumo de órgãos públicos, com OCR. | Python · Tesseract · Docker |
+| **[Robô desviador](https://github.com/MatheusBraga1106/robo-desviador)** | Simulador de robô com sensores HC-SR04 e rede neural treinada por neuroevolução. | C/C++ · Python |
+| **[Hub Sim Racing](https://github.com/MatheusBraga1106/hub-sim-racing)** | App desktop para volante, câmbio, pedais e telemetria, com cena 3D. 9 versões publicadas. | Python · Three.js |
+| **Monitor do mercado de confiança** *(privado)* | Câmera e sensores na geladeira sem atendente do Centro Acadêmico da UFG, com painel de auditoria. | ESP32-S3 · painel web |
+| **[3d-web-dev-skills](https://github.com/MatheusBraga1106/3d-web-dev-skills)** | Guia e skill do Claude Code para interfaces web com cena 3D servidas por Python. | Three.js · FastAPI · pywebview |
 
-### Como eu trabalho com IA
-
-- **Claude Code como equipe:** especificação e plano primeiro, tarefas divididas entre subagentes, revisão a cada entrega.
-- **Vários agentes, um projeto:** no estágio, o desenvolvimento é dividido entre 3 agentes do Claude (sistema, WhatsApp e coleta de dados), que se comunicam por contratos de API.
 ### Stack
 
-- **IA e automação:** n8n · OpenAI · Claude Code · MCP · Gemini · Evolution API · OCR (Tesseract)
-- **Dados e backend:** Python · FastAPI · PostgreSQL · Supabase · pandas · SQL · Power BI
+- **Backend e dados:** Python · FastAPI · PostgreSQL · Supabase · Redis · SQL · pandas · pytest
+- **IA e automação:** OpenAI · n8n · Claude Code · Evolution API · OCR (Tesseract)
 - **Infra:** Docker · Dokploy · VPS Linux · Cloudflare
 - **Hardware:** ESP32 · Arduino · impressão 3D · Fusion 360
 
