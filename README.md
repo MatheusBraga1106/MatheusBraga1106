@@ -17,7 +17,7 @@ do primeiro protótipo ao servidor. Portfólio: **[hubdev.app](https://hubdev.ap
 |---|---|---|
 | **Bot do Laboratório 3D** *(privado, empresa)* | Funcionários pedem peças, reportam problemas com foto e acompanham pedidos pelo WhatsApp. Três agentes (triagem, pedido e ocorrência) com memória no Postgres, e passagem para um humano quando o assunto foge do escopo. | Em uso, testado por agentes Claude que simulam perfis de usuário |
 | **[FindBus](https://findbus.com.br)** | Mostra em tempo real quais ônibus de Goiânia que estão chegando têm ar-condicionado. Cache em 3 camadas (Redis, Cloudflare, navegador). | 12,6 mil visitas por mês |
-| **[Extração de faturas](https://github.com/MatheusBraga1106/ProjetoAutoma--oFatura)** | PDF de conta de água → dados estruturados, com OCR para documentos digitalizados e validação cruzada. | Suspeitas de erro de 217 → 63 em 9.820 faturas |
+| **[Extração de faturas](https://github.com/MatheusBraga1106/extrator-faturas-agua)** | PDF de conta de água → dados estruturados, com OCR para documentos digitalizados e validação cruzada. | Suspeitas de erro de 217 → 63 em 9.820 faturas |
 | **Monitor do mercado de confiança** *(privado)* | Geladeira sem atendente do Centro Acadêmico da UFG: câmera e sensores (ESP32-S3) e painel de auditoria. | Em uso desde out/2026 |
 | **[Hub Sim Racing](https://github.com/MatheusBraga1106/hub-sim-racing)** | App desktop para equipamentos de simulação, com cena 3D. Feito com subagentes do Claude Code. | 670+ testes, 9 versões publicadas |
 | **[3d-web-dev-skills](https://github.com/MatheusBraga1106/3d-web-dev-skills)** | Skill do Claude Code com o padrão de interfaces 3D servidas por Python. | Reutilizada em projetos novos |
