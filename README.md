@@ -1,22 +1,22 @@
 ## Matheus Braga
 
-**AI Builder** · Engenharia de Computação na UFG (Goiânia)
+**AI Engineer** · Engenharia de Computação na UFG (Goiânia)
 
-Construo com IA soluções para problemas reais e coloco em produção: agentes, automações e sistemas internos,
-do primeiro protótipo ao servidor. Portfólio: **[ia.matheusbragadev.com](https://ia.matheusbragadev.com)**
+Engenharia de software com foco em IA: construo sistemas que integram LLMs a processos reais e coloco em produção,
+com testes automatizados, Docker e deploy no meu próprio servidor. Portfólio: **[ia.matheusbragadev.com](https://ia.matheusbragadev.com)**
 
 ### Agora
 
 - **Grupo Odilon Santos**, Laboratório 3D: sou o único responsável pelo sistema completo do laboratório, do pedido à venda
-  (pedidos, produção, catálogo, reposição, precificação e landing page de vendas), com um bot de WhatsApp de 3 agentes de IA
-  (n8n + OpenAI + Evolution API) como porta de entrada para as garagens de ônibus.
+  (Python, FastAPI, PostgreSQL e Docker), com um bot de WhatsApp de 3 agentes de LLM (OpenAI + n8n + Evolution API)
+  integrado como porta de entrada para as garagens de ônibus.
 - **Iniciação Científica na UFG**: extração automática de faturas de água e energia de órgãos públicos para auditoria de consumo.
 
 ### Destaques
 
 | Projeto | O que resolve | Resultado |
 |---|---|---|
-| **Sistema do Laboratório 3D** *(privado, empresa)* | Do pedido à venda: pedidos, fila de produção, catálogo, reposição, precificação com coletor de horas de modelagem e landing page de vendas. Na entrada, um bot de WhatsApp com três agentes (triagem, pedido e ocorrência), memória no Postgres e passagem para um humano. | Feito e validado só por mim; o bot é testado por agentes que simulam funcionários |
+| **Sistema do Laboratório 3D** *(privado, empresa)* | Do pedido à venda: pedidos, fila de produção, catálogo, reposição, precificação com coletor de horas de modelagem e landing page de vendas. Na entrada, um bot de WhatsApp com três agentes (triagem, pedido e ocorrência), memória no Postgres e passagem para um humano. | Feito e validado só por mim, com 2.300+ testes automatizados; o bot é avaliado por agentes que simulam funcionários |
 | **[FindBus](https://findbus.com.br)** | Mostra em tempo real quais ônibus de Goiânia que estão chegando têm ar-condicionado. Cache em 3 camadas (Redis, Cloudflare, navegador). | 12,6 mil visitas por mês |
 | **[Extração de faturas](https://github.com/MatheusBraga1106/extrator-faturas-agua)** | PDF de conta de água → dados estruturados, com OCR para documentos digitalizados e validação cruzada. | Suspeitas de erro de 217 → 63 em 9.820 faturas |
 | **Monitor do mercado de confiança** *(privado)* | Geladeira sem atendente do Centro Acadêmico da UFG: câmera e sensores (ESP32-S3) e painel de auditoria. | Em uso desde out/2026 |
