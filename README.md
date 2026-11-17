@@ -1,57 +1,40 @@
-# Matheus Braga
+## Matheus Braga
 
-Estudante de Engenharia de Computação na UFG. Construo produtos de ponta a ponta: **backend e infraestrutura** (Python, FastAPI, Docker), **sistemas embarcados** (ESP32/Arduino) e **interfaces web**, com ênfase em automação e dados.
+**AI Builder** · Engenharia de Computação na UFG (Goiânia)
 
-- Trabalhando com modelagem 3D e desenvolvimento de sistemas no Grupo Odilon Santos
-- Integrante de uma pesquisa em dados (eficientização de consumo de água em prédios)
-- Agora: Hub Sim Racing (app de desktop para dispositivos de simulador), medidor de energia com ESP32 e sistema de câmeras com ESP32-S3
-- Estudando: SQL, BI e machine learning
-- Contato: mmatheusbragamed@gmail.com
+Construo com IA soluções para problemas reais e coloco em produção: agentes, automações e sistemas internos,
+do primeiro protótipo ao servidor. Portfólio: **[hubdev.app](https://hubdev.app)**
 
-## Projetos em destaque
+### Agora
 
-| Projeto | O que é | Tecnologias |
+- **Grupo Odilon Santos**, Laboratório 3D: bot de WhatsApp com 3 agentes de IA (n8n + OpenAI + Evolution API) que atende
+  as garagens de ônibus, e o sistema interno por trás dele (catálogo, produção, custos e vitrine de vendas).
+- **Iniciação Científica na UFG**: extração automática de faturas de água e energia de órgãos públicos para auditoria de consumo.
+
+### Destaques
+
+| Projeto | O que resolve | Resultado |
 |---|---|---|
-| [**Hub Sim Racing**](https://github.com/MatheusBraga1106/hub-sim-racing) ([site e download](https://matheusbraga1106.github.io/hub-sim-racing/)) | App de desktop que reúne base de força, volante DIY, câmbio Wi-Fi e pedais em uma interface web, com cena 3D do volante. 9 versões publicadas, atualização assinada. Código-fonte privado. | Python, FastAPI, WebSocket, pywebview, Three.js |
-| [**FindBus**](https://findbus.com.br) | Painel em tempo real que mostra quais ônibus da RMTC (Goiânia) têm ar-condicionado. Cache em 3 camadas para respeitar o rate limit da API. | FastAPI, Redis, Cloudflare, Docker, Leaflet |
-| [**Extração de faturas**](https://github.com/MatheusBraga1106/ProjetoAutoma--oFatura) | PDF → dados estruturados para 9 distribuidoras de água, com OCR de reserva, banco, interface web e testes automatizados. | Python, pandas, FastAPI, PostgreSQL |
-| [**robo-desviador**](https://github.com/MatheusBraga1106/robo-desviador) | Simulador de um robô real (motores DC + HC-SR04): você joga e a sua rede neural joga, treinada por neuroevolução. | Python, pygame, Arduino |
-| [**3d-web-dev-skills**](https://github.com/MatheusBraga1106/3d-web-dev-skills) | Guia técnico em português para interfaces web com 3D servidas por Python, extraído do Hub Sim Racing. Funciona como skill do Claude Code. 
-| [**16x16 Pixel Editor**](https://github.com/MatheusBraga1106/16x16_Pixel_editor_ESP32S2_mini) | Editor de pixel art para matriz de LEDs, com OTA. | ESP32-S2, Python, WS2812B |
+| **Bot do Laboratório 3D** *(privado, empresa)* | Funcionários pedem peças, reportam problemas com foto e acompanham pedidos pelo WhatsApp. Três agentes (triagem, pedido e ocorrência) com memória no Postgres, e passagem para um humano quando o assunto foge do escopo. | Em uso, testado por agentes Claude que simulam perfis de usuário |
+| **[FindBus](https://findbus.com.br)** | Mostra em tempo real quais ônibus de Goiânia que estão chegando têm ar-condicionado. Cache em 3 camadas (Redis, Cloudflare, navegador). | 12,6 mil visitas por mês |
+| **[Extração de faturas](https://github.com/MatheusBraga1106/ProjetoAutoma--oFatura)** | PDF de conta de água → dados estruturados, com OCR para documentos digitalizados e validação cruzada. | Suspeitas de erro de 217 → 63 em 9.820 faturas |
+| **Monitor do mercado de confiança** *(privado)* | Geladeira sem atendente do Centro Acadêmico da UFG: câmera e sensores (ESP32-S3) e painel de auditoria. | Em uso desde out/2026 |
+| **[Hub Sim Racing](https://github.com/MatheusBraga1106/hub-sim-racing)** | App desktop para equipamentos de simulação, com cena 3D. Feito com subagentes do Claude Code. | 670+ testes, 9 versões publicadas |
+| **[3d-web-dev-skills](https://github.com/MatheusBraga1106/3d-web-dev-skills)** | Skill do Claude Code com o padrão de interfaces 3D servidas por Python. | Reutilizada em projetos novos |
 
-Também em andamento, em repositórios privados: medidor de energia que corta o ar-condicionado por infravermelho, monitoramento antifurto com câmeras ESP32-S3 e um volante/câmbio DIY.
+### Como eu trabalho com IA
 
-## Stack
+- **Claude Code como equipe:** especificação e plano primeiro, tarefas divididas entre subagentes, revisão a cada entrega.
+- **Vários agentes, um projeto:** no estágio, o desenvolvimento é dividido entre 3 agentes do Claude (sistema, WhatsApp e coleta de dados), que se comunicam por contratos de API.
+- **IA fora do chat:** integrações via MCP, como a do Fusion 360, em que o Claude modelou uma peça aprovada na primeira impressão.
 
-<div>
-  <img align="center" alt="Python" height="30" width="40" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" />
-  <img align="center" alt="FastAPI" height="30" width="40" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/fastapi/fastapi-original.svg" />
-  <img align="center" alt="JavaScript" height="30" width="40" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" />
-  <img align="center" alt="TypeScript" height="30" width="40" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg" />
-  <img align="center" alt="React" height="30" width="40" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg" />
-  <img align="center" alt="Three.js" height="30" width="40" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/threejs/threejs-original.svg" />
-  <img align="center" alt="PostgreSQL" height="30" width="40" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg" />
-  <img align="center" alt="Redis" height="30" width="40" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/redis/redis-original.svg" />
-  <img align="center" alt="Docker" height="30" width="40" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg" />
-  <img align="center" alt="Arduino" height="30" width="40" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/arduino/arduino-original.svg" />
-  <img align="center" alt="C" height="30" width="40" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/c/c-original.svg" />
-  <img align="center" alt="C++" height="30" width="40" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cplusplus/cplusplus-original.svg" />
-  <img align="center" alt="Git" height="30" width="40" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" />
-</div>
+### Stack
 
-**Também:** pandas, Leaflet, GSAP, Cloudflare, Dokploy/VPS Linux, PyInstaller, Fusion (CAD e impressão 3D).
+- **IA e automação:** n8n · OpenAI · Claude Code · MCP · Gemini · Evolution API · OCR (Tesseract)
+- **Dados e backend:** Python · FastAPI · PostgreSQL · Supabase · pandas · SQL · Power BI
+- **Infra:** Docker · Dokploy · VPS Linux · Cloudflare
+- **Hardware:** ESP32 · Arduino · impressão 3D · Fusion 360
 
-![Métricas do GitHub](github-metrics.svg)
+### Contato
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/MatheusBraga1106/MatheusBraga1106/output/github-contribution-grid-snake-dark.svg" />
-  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/MatheusBraga1106/MatheusBraga1106/output/github-contribution-grid-snake.svg" />
-  <img alt="Cobrinha comendo minhas contribuições" src="https://raw.githubusercontent.com/MatheusBraga1106/MatheusBraga1106/output/github-contribution-grid-snake.svg" />
-</picture>
-
-## Contato
-
-<div>
-  <a href="mailto:mmatheusbragamed@gmail.com"><img src="https://img.shields.io/badge/-Gmail-%23333?style=for-the-badge&logo=gmail&logoColor=white" alt="E-mail"></a>
-  <a href="https://www.linkedin.com/in/mmatheusbraga/"><img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn"></a>
-</div>
+[LinkedIn](https://www.linkedin.com/in/mmatheusbraga/) · mmatheusbragamed@gmail.com
