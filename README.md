@@ -3,7 +3,7 @@
 **AI Builder** · Engenharia de Computação na UFG (Goiânia)
 
 Construo com IA soluções para problemas reais e coloco em produção: agentes, automações e sistemas internos,
-do primeiro protótipo ao servidor. Portfólio: **[hubdev.app](https://hubdev.app)**
+do primeiro protótipo ao servidor. Portfólio: **[ia.matheusbragadev.com](https://ia.matheusbragadev.com)**
 
 ### Agora
 
