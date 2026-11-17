@@ -7,15 +7,16 @@ do primeiro protótipo ao servidor. Portfólio: **[ia.matheusbragadev.com](https
 
 ### Agora
 
-- **Grupo Odilon Santos**, Laboratório 3D: bot de WhatsApp com 3 agentes de IA (n8n + OpenAI + Evolution API) que atende
-  as garagens de ônibus, e o sistema interno por trás dele (catálogo, produção, custos e vitrine de vendas).
+- **Grupo Odilon Santos**, Laboratório 3D: sou o único responsável pelo sistema completo do laboratório, do pedido à venda
+  (pedidos, produção, catálogo, reposição, precificação e landing page de vendas), com um bot de WhatsApp de 3 agentes de IA
+  (n8n + OpenAI + Evolution API) como porta de entrada para as garagens de ônibus.
 - **Iniciação Científica na UFG**: extração automática de faturas de água e energia de órgãos públicos para auditoria de consumo.
 
 ### Destaques
 
 | Projeto | O que resolve | Resultado |
 |---|---|---|
-| **Bot do Laboratório 3D** *(privado, empresa)* | Funcionários pedem peças, reportam problemas com foto e acompanham pedidos pelo WhatsApp. Três agentes (triagem, pedido e ocorrência) com memória no Postgres, e passagem para um humano quando o assunto foge do escopo. | Em uso, testado por agentes Claude que simulam perfis de usuário |
+| **Sistema do Laboratório 3D** *(privado, empresa)* | Do pedido à venda: pedidos, fila de produção, catálogo, reposição, precificação com coletor de horas de modelagem e landing page de vendas. Na entrada, um bot de WhatsApp com três agentes (triagem, pedido e ocorrência), memória no Postgres e passagem para um humano. | Feito e validado só por mim; o bot é testado por agentes que simulam funcionários |
 | **[FindBus](https://findbus.com.br)** | Mostra em tempo real quais ônibus de Goiânia que estão chegando têm ar-condicionado. Cache em 3 camadas (Redis, Cloudflare, navegador). | 12,6 mil visitas por mês |
 | **[Extração de faturas](https://github.com/MatheusBraga1106/extrator-faturas-agua)** | PDF de conta de água → dados estruturados, com OCR para documentos digitalizados e validação cruzada. | Suspeitas de erro de 217 → 63 em 9.820 faturas |
 | **Monitor do mercado de confiança** *(privado)* | Geladeira sem atendente do Centro Acadêmico da UFG: câmera e sensores (ESP32-S3) e painel de auditoria. | Em uso desde out/2026 |
@@ -26,8 +27,6 @@ do primeiro protótipo ao servidor. Portfólio: **[ia.matheusbragadev.com](https
 
 - **Claude Code como equipe:** especificação e plano primeiro, tarefas divididas entre subagentes, revisão a cada entrega.
 - **Vários agentes, um projeto:** no estágio, o desenvolvimento é dividido entre 3 agentes do Claude (sistema, WhatsApp e coleta de dados), que se comunicam por contratos de API.
-- **IA fora do chat:** integrações via MCP, como a do Fusion 360, em que o Claude modelou uma peça aprovada na primeira impressão.
-
 ### Stack
 
 - **IA e automação:** n8n · OpenAI · Claude Code · MCP · Gemini · Evolution API · OCR (Tesseract)
